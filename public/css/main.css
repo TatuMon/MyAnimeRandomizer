@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'MyAnimeList';
+    src: url('fonts/agrevuecyr_roman_medium-webfont.woff2') format('woff2'), url('fonts/agrevuecyr_roman_medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: 'MyAnimeList', 'sans-serif';
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+header {
+    width: 100%;
+}
+
+#header-title {
+    color: #1d439b;
+    text-align: center;
+}
+
+#main {
+    width: 80%;
+    margin: auto;
+}
+
+#main>.login {
+    display: block;
+    max-width: 300px;
+    margin: auto;
+}
+
+.myanimelist {
+    font-family: 'MyAnimeList', sans-serif;
+    color: #1d439b;
+}
