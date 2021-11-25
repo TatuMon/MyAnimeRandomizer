@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const path = require('path');
+const utils = require('./utils');
 
 app.use('*/css', express.static(path.join(__dirname, 'public/css')));
 
@@ -10,7 +13,14 @@ app.get('/', (req, res) => {
 
 app.get('/api/authdata', (req, res) => {
     let client_id = process.env.CLIENT_ID;
-    res.json({ client_id: client_id });
+    let codeVerifier = utils.codeVerifier();
+
+
+    res.json({
+        client_id: client_id,
+        code_verifier: codeVerifier,
+        code_challenge: codeVerifier
+    });
 })
 
 let port = process.env.PORT || 3000;

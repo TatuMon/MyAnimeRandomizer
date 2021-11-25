@@ -37,7 +37,14 @@
             success: function(data) {
                 //Once you get the info, use it to perform oauth authorization
                 //redirect to this url:
-                location.href = `https://myanimelist.net/v1/oauth2/authorize?response_type=code&client_id=${data['client_id']}&code_challenge=FALTA`
+                let client_id = data['client_id'];
+                let code_challenge = data['code_challenge'];
+                let url = `https://myanimelist.net/v1/oauth2/authorize?response_type=code&`;
+                url += `client_id=${client_id}&`;
+                url += `code_challenge=${code_challenge}&`;
+                url += `state=request&`;
+
+                location.href = url;
             }
         })
     })
