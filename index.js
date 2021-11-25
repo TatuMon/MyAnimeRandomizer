@@ -8,6 +8,12 @@ app.get('/', (req, res) => {
     res.sendFile('views/index.html', { root: __dirname })
 })
 
-app.listen('3000', () => {
-    console.log('Listening on port 3000');
+app.get('/api/authdata', (req, res) => {
+    let client_id = process.env.CLIENT_ID;
+    res.json({ client_id: client_id });
+})
+
+let port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
 })
