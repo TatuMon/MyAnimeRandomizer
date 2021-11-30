@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const path = require('path')
-const utils = require('./utils');
+const utils = require('./resources/js/utils');
 const middlewares = require('./middlewares');
 
 const oauth = require('./routes/oauth');

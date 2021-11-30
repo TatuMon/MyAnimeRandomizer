@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const utils = require('../utils');
+const utils = require('../resources/js/utils');
 
 router.get('/oauth/auth', (req, res) => {
     let client_id = process.env.CLIENT_ID;
