@@ -32,7 +32,7 @@
 
     $('.login').on('click', function() {
         $.ajax({
-            url: '/api/authdata', //First get the needed information
+            url: '/oauth/auth', //First get the needed information
             method: 'GET',
             success: function(data) {
                 //Once you get the info, use it to perform oauth authorization
