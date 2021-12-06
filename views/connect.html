@@ -42,7 +42,7 @@
                 let url = `https://myanimelist.net/v1/oauth2/authorize?response_type=code&`;
                 url += `client_id=${client_id}&`;
                 url += `code_challenge=${code_challenge}&`;
-                url += `state=request&`;
+                url += `state=${code_challenge}&`;
 
                 location.href = url;
             }

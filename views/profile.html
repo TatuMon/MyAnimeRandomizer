@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="header-title">Your MAL user's info:</h1>
+    </header>
+
+    <div id="main">
+        <ul id="user-data">
+
+        </ul>
+    </div>
+</body>
+
+<script>
+    /*
+     *USING OAUTH2 PROTOCOL SO THE USERS CAN USE THEIR MAL ACCOUNTS IN THE APP
+     *how I learnt OAUTH: https://myanimelist.net/blog.php?eid=835707
+     *
+     *MUST DO CODE VERIFIER & CODE CHALLENGE
+     */
+
+    $('document').on('ready', () => {
+        $.ajax({
+            url: 'https://api.myanimelist.net/v2/users/@me',
+            success: (data) => {
+                console.log(data);
+            }
+        })
+    })
+</script>
+
+</html>
