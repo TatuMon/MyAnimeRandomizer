@@ -19,6 +19,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
+    res.sendFile('/views/profile.html', { root: __dirname });
     let payload = queryString.stringify({
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
@@ -40,7 +41,7 @@ app.get('/login', (req, res) => {
         .then((data) => {
             data = JSON.parse(data);
 
-            res.cookie('tk', `${data.access_token}`, {signed: true});
+            res.cookie('tk', data.access_token, {signed: true});
             res.redirect('/');
             // res.json('owo');
         })
