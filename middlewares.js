@@ -1,11 +1,13 @@
-const { httpsRequest } = require('./resources/js/https');
-const queryString = require('qs'); 
+
 
 //TODO: Check if user has token. Kinda like a auth middleware
-let authorized = (req, res, next) => {
-    if(!(req.query.code)){
-        res.sendFile('/views/connect.html', { root: __dirname });
+const authorized = (req, res, next) => {
+    if(!(req.signedCookies['tk'])){
+        res.sendFile('/views/connect.html', { root: global.basePath });
+        return;
     }
+
+    next();
 }
 
 module.exports = {
