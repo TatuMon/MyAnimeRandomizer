@@ -7,7 +7,7 @@
 
 html,
 body {
-    font-family: 'MyAnimeList', 'sans-serif';
+    font-family: 'Verdana', 'sans-serif';
     height: 100%;
     width: 100%;
     margin: 0;
@@ -15,11 +15,23 @@ body {
 
 header {
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.5em;
 }
 
 #header-title {
     color: #1d439b;
     text-align: center;
+    font-family: 'MyAnimeList';
+    margin-left: 5em;
+}
+
+#header-about{
+    margin-left: auto;
+    margin-right: 5em;
+    text-decoration: underline;
+    font-style: italic;
 }
 
 #main {

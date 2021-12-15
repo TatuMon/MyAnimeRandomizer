@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About</title>
+
+        <link rel="stylesheet" href="/css/main.css">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <%- include('./partials/header') %>
+
+        <div id="main">
+            <h1 class="mt-10 text-center text-xl font-bold"> About </h1>
+
+            <section class="info">
+                <div class="section-title bg-blue-700"><h3 class="text-xl text-white font-bold">My Anime Randomizer</h3></div>
+                <div class="about-section-body p-4">
+                    <p>MyAnimeRandomizer is being made thanks to MyAnimeList API and <strong>NOT</strong> by the MyAnimeList's developers team.</p>
+                    <ul class="list-disc">
+                        <li class="mt-5">
+                            <p>What is MAR meant to do?</p>
+                            <p class="text-sm">MAR is meant to retrieve random animes. You can get a random one from many lists or many genres (or both)</p>
+                        </li>
+                        
+                        <li class="mt-5">
+                            <p>What MAR will NOT do?</p>
+                            <p class="text-sm">MAR will never manipulate nor edit your MAL account in any way. It connects to your account so it can retrieve your lists and some basic information</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>

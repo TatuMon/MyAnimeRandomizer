@@ -9,13 +9,12 @@
 
     <link rel="stylesheet" href="/css/main.css">
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <header>
-        <h1 id="header-title"> <%= name ? name : '<username>' %> </h1>
-    </header>
+    <%- include('./partials/header') %>
 
     <div id="main">
         <ul id="user-data">

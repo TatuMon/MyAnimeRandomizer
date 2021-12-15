@@ -33,8 +33,12 @@ app.get('/', async (req, res) => {
     res.render('profile', {name :  data.name})
 });
 
+app.get('/about', (req, res) => {
+    res.render('about');
+})
+
 app.get('*', (req, res) => {
-    res.status(404).send('WRONG!')
+    res.redirect('/');
 })
 
 module.exports = app;
