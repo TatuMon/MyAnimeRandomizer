@@ -19,7 +19,7 @@ router.get('/oauth/auth', (req, res) => {
     });
 })
 
-router.get('/oauth/login', (req, res) => {
+router.get('/oauth/login', async (req, res) => {
     let payload = queryString.stringify({
         client_id: process.env.CLIENT_ID,
         client_secret: process.env.CLIENT_SECRET,
@@ -37,16 +37,9 @@ router.get('/oauth/login', (req, res) => {
         }
     };
 
-    httpsRequest(options, payload)
-        .then((data) => {
-            data = JSON.parse(data);
-
-            res.cookie('tk', `${data.access_token}`, {signed: true, httpOnly: true});
-            res.redirect('/');
-        })
-        .catch((e) => {
-            res.send(e);
-        });
+    let data = JSON.parse(await httpsRequest(options, payload))
+    res.cookie('tk', `${data.access_token}`, {signed: true, httpOnly: true})
+       .redirect('/');
 })
 
 module.exports = router;
