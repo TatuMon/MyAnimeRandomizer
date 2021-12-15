@@ -3,13 +3,9 @@ const queryString = require('qs');
 
 //TODO: Check if user has token. Kinda like a auth middleware
 let authorized = (req, res, next) => {
-
     if(!(req.signedCookies[''])){
-
-        res.sendFile('/views/connect.html', { root: __dirname });
-
+        res.sendFile('/views/connect.html', { root: global.basePath });
     }
-
 }
 
 module.exports = {
