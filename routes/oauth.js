@@ -3,6 +3,9 @@ const router = express.Router();
 const utils = require('../resources/js/utils');
 const queryString = require('qs');
 const { httpsRequest } = require('../resources/js/https')
+const cookieParser = require('cookie-parser');
+
+router.use(cookieParser(process.env.COOKIE_SECRET));
 
 router.get('/oauth/auth', (req, res) => {
     let client_id = process.env.CLIENT_ID;
@@ -38,7 +41,7 @@ router.get('/oauth/login', (req, res) => {
         .then((data) => {
             data = JSON.parse(data);
 
-            //res.cookie('tk', `${data.access_token}`, {signed: true});
+            res.cookie('tk', `${data.access_token}`, {signed: true, httpOnly: true});
             res.redirect('/');
         })
         .catch((e) => {
