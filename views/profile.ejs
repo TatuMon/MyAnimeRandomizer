@@ -24,13 +24,6 @@
 </body>
 
 <script>
-    /*
-     *USING OAUTH2 PROTOCOL SO THE USERS CAN USE THEIR MAL ACCOUNTS IN THE APP
-     *how I learnt OAUTH: https://myanimelist.net/blog.php?eid=835707
-     *
-     *MUST DO CODE VERIFIER & CODE CHALLENGE
-     */
-
     $('document').on('ready', () => {
         $.ajax({
             url: '/user/data',
