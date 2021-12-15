@@ -1,6 +1,6 @@
 const https = require('https');
 
-let httpsRequest = (options, payload) => {
+const httpsRequest = (options, payload) => {
     return new Promise((resolve, reject) => {
         let request = https.request(options, (res) => {
             let data = '';
@@ -12,6 +12,10 @@ let httpsRequest = (options, payload) => {
     });
 }
 
+const httpsAsync = async (options, payload) => {
+    return await httpsRequest(options, payload)
+}
+
 module.exports = {
-    httpsRequest: httpsRequest,
+    httpsRequest: httpsAsync,
 }
