@@ -1,14 +1,20 @@
 {
+    "name": "my-anime-randomizer",
+    "version": "1.0.0",
+    "scripts": {
+        "develop": "nodemon server.js",
+        "start": "node server.js"
+    },
     "dependencies": {
         "braces": "^3.0.2",
         "cookie-parser": "^1.4.6",
         "dotenv": "^10.0.0",
         "ejs": "^3.1.6",
         "express": "^4.17.1",
-        "nodemon": "^2.0.15",
         "postcss": "^8.3.11"
     },
     "devDependencies": {
+        "nodemon": "^2.0.15",
         "webpack": "^5.64.2"
     }
 }
