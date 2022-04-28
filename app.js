@@ -2,9 +2,9 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser');
 const path = require('path');
-const utils = require('./resources/js/utils');
+const utils = require('./src/js/utils');
 const middlewares = require('./middlewares');
-const { httpsRequest } = require('./resources/js/https')
+const { httpsRequest } = require('./src/js/https')
 
 const oauth = require('./routes/oauth');
 const user = require('./routes/user');

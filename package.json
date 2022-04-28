@@ -1,14 +1,17 @@
 {
+    "scripts": {
+        "compile": "tsc && webpack",
+        "start": "node server"
+    },
     "dependencies": {
         "braces": "^3.0.2",
         "cookie-parser": "^1.4.6",
         "dotenv": "^10.0.0",
-        "ejs": "^3.1.6",
+        "ejs": "^3.1.7",
         "express": "^4.17.1",
         "nodemon": "^2.0.15",
-        "postcss": "^8.3.11"
-    },
-    "devDependencies": {
-        "webpack": "^5.64.2"
+        "postcss": "^8.3.11",
+        "typescript": "^4.6.4",
+        "webpack": "^5.72.0"
     }
 }

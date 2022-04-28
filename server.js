@@ -5,7 +5,7 @@ const express = require('express');
 const app = require('./app');
 
 global.basePath = __dirname;
-global.resources = path.join(__dirname, '/resources')
+global.resources = path.join(__dirname, '/src')
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
