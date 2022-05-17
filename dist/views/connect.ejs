@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MyAnimeRandomizer</title>
+
+        <link rel="stylesheet" href="/css/main.css">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <h1 id="page-title" class="myanimelist text-center text-3xl mt-10">MyAnimeRandomizer</h1>
+        <div id="main">
+            <button class="login rounded outline outline-2 outline-blue-500 p-1">Connect to <strong class="myanimelist">MyAnimeList</strong></button>
+        </div>
+
+        <script>
+            /*
+             *USING OAUTH2 PROTOCOL SO THE USERS CAN USE THEIR MAL ACCOUNTS IN THE APP
+             *how I learnt OAUTH: https://myanimelist.net/blog.php?eid=835707
+             *
+             *MUST DO CODE VERIFIER & CODE CHALLENGE
+             */
+
+            $('.login').on('click', function() {
+                $.ajax({
+                    url: '/oauth/auth', //First get the needed information
+                    method: 'GET',
+                    success: function(data) {
+                        //Once you get the info, use it to perform oauth authorization
+                        //redirect to this url:
+                        let client_id = data['client_id'];
+                        let code_challenge = data['code_challenge'];
+                        let url = `https://myanimelist.net/v1/oauth2/authorize?response_type=code&`;
+                        url += `client_id=${client_id}&`;
+                        url += `code_challenge=${code_challenge}&`;
+                        url += `state=${code_challenge}&`;
+
+                        location.href = url;
+                    }
+                })
+            })
+        </script>
+    </body>
+
+</html>

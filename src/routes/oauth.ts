@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const utils = require('../src/js/utils');
+import {Router} from 'express';
+
+const router = Router();
+const utils = require('../js/utils');
 const queryString = require('qs');
-const { httpsRequest } = require('../src/js/https')
+const { httpsRequest } = require('../js/https')
 const cookieParser = require('cookie-parser');
 
 router.use(cookieParser(process.env.COOKIE_SECRET));

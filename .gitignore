@@ -1,2 +1,7 @@
 .env
 /node_modules
+
+## editor
+.vs
+
+doc-palopibe.md

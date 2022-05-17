@@ -17,7 +17,7 @@ let codeVerifier = () => {
     return code
 }
 
-let randomBetween = (min, max) => {
+let randomBetween = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 

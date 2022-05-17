@@ -1,18 +1,26 @@
-const express = require('express');
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+
 const app = express();
-const cookieParser = require('cookie-parser');
-const path = require('path');
-const utils = require('./src/js/utils');
+const utils = require('./js/utils');
 const middlewares = require('./middlewares');
-const { httpsRequest } = require('./src/js/https')
+const { httpsRequest } = require('./js/https')
 
 const oauth = require('./routes/oauth');
 const user = require('./routes/user');
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 app.use('*/css', express.static(path.join(__dirname, 'public/css')));
 app.use(cookieParser(process.env.COOKIE_SECRET));
+
+//The about page is open to anyone
+app.get('/about', (req, res) => {
+    res.render('about');
+})
+
 app.use(oauth);
 app.use(middlewares.authorized);
 app.use(user);
@@ -28,14 +36,10 @@ app.get('/', async (req, res) => {
         }
     }
 
-    data = JSON.parse(await httpsRequest(options));
+    let data: Record<string, any> = JSON.parse(await httpsRequest(options));
 
     res.render('profile', {name :  data.name})
 });
-
-app.get('/about', (req, res) => {
-    res.render('about');
-})
 
 app.get('*', (req, res) => {
     res.redirect('/');
